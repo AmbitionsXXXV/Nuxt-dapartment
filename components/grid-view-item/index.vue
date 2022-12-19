@@ -35,6 +35,7 @@ const props = withDefaults(defineProps<IProps>(), {
   text-align: center;
   background-color: #fff;
   border-radius: 8px;
+  /* 动画效果 */
   transition: all 0.2s linear;
   &:hover {
     @include hoverEffect();
