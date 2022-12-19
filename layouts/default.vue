@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import { useHomeStore } from '~~/store'
+
+const homeStore = useHomeStore()
+homeStore.fetchHomeInfoData('oppo')
+</script>
+
 <template>
   <div class="layout">
     <!-- Header -->

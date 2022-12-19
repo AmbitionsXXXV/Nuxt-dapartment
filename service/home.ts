@@ -1,9 +1,10 @@
 import EtcRequest from './index'
 import type { IResultData } from './index'
-type HomeInfoType = 'oppo' | 'onePlus' | 'intelligent'
+import { IHomeState } from '~~/store'
+export type IHomeInfoType = 'oppo' | 'onePlus' | 'intelligent'
 
-export const getHomeInfo = (type: HomeInfoType) => {
-  return EtcRequest.get<IResultData<any>>('/home/info', {
+export const getHomeInfo = (type: IHomeInfoType) => {
+  return EtcRequest.get<IResultData<IHomeState>>('/home/info', {
     type: type || 'oppo'
   })
 }
