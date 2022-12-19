@@ -32,5 +32,6 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       noscript: [{ children: 'Javascript is required' }]
     }
-  }
+  },
+  modules: ['@pinia/nuxt']
 })
