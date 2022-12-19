@@ -49,8 +49,6 @@ const getPagePath = computed(() => {
     return path
   }
 })
-
-console.log('getPagePath', getPagePath)
 </script>
 
 <style lang="scss" scoped>
