@@ -6,18 +6,17 @@
         <h1 class="title">OPPO手机商城</h1>
       </NuxtLink>
       <ul class="content-center">
-        <li>
-          <NuxtLink class="link" to="/">OPPO专区</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="link" to="/">OnePlus专区</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="link" to="/">智能硬件</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink class="link" to="/">服务</NuxtLink>
-        </li>
+        <template v-for="(item, index) in navbars" :key="index">
+          <li :class="{ active: currentIndex === index }">
+            <NuxtLink
+              class="link"
+              :to="getPagePath(item)"
+              @click="handleItemClick(index)"
+            >
+              {{ item.title }}
+            </NuxtLink>
+          </li>
+        </template>
       </ul>
       <search class="content-right"></search>
     </div>
@@ -25,13 +24,33 @@
 </template>
 
 <script lang="ts" setup>
-// export interface IProps {
-//   title: string
-// }
+import { INavbar } from '~~/store'
 
-// const props = withDefaults(defineProps<IProps>(), {
-//   title: ''
-// })
+export interface IProps {
+  navbars: INavbar[]
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+  navbars: () => []
+})
+
+const currentIndex = ref<number>(0)
+
+function handleItemClick(index: number) {
+  currentIndex.value = index
+}
+
+const getPagePath = computed(() => {
+  return (item: INavbar) => {
+    let path = '/'
+    if (item.type !== 'oppo') {
+      path += item.type
+    }
+    return path
+  }
+})
+
+console.log('getPagePath', getPagePath)
 </script>
 
 <style lang="scss" scoped>
