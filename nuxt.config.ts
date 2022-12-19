@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import ElementPlus from 'unplugin-element-plus/vite'
 export default defineNuxtConfig({
   css: [
     'normalize.css',
@@ -12,7 +13,9 @@ export default defineNuxtConfig({
           additionalData: "@use '@/assets/css/variables.scss' as *;"
         }
       }
-    }
+    },
+    // 自动导入ele样式
+    plugins: [ElementPlus()]
   },
   app: {
     head: {
@@ -33,5 +36,9 @@ export default defineNuxtConfig({
       noscript: [{ children: 'Javascript is required' }]
     }
   },
-  modules: ['@pinia/nuxt']
+  modules: ['@pinia/nuxt'],
+  build: {
+    // babel转移
+    transpile: ['element-plus/es']
+  }
 })

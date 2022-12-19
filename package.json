@@ -12,10 +12,12 @@
     "@types/sass": "^1.43.1",
     "nuxt": "3.0.0",
     "prettier": "^2.8.1",
-    "sass": "^1.57.0"
+    "sass": "^1.57.0",
+    "unplugin-element-plus": "^0.4.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
+    "element-plus": "^2.2.27",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.28"
   }
