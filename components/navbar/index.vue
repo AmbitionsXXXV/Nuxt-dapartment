@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="wrapper content">
       <NuxtLink class="content-left" to="/">
-        <img src="@/assets/images/logo.png" alt="" class="logo" />
+        <img class="logo" src="@/assets/images/logo.png" alt="" />
         <h1 class="title">OPPO手机商城</h1>
       </NuxtLink>
       <ul class="content-center">
@@ -22,33 +22,31 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
-import { INavbar } from '~~/store'
+import type { INavbar } from '@/store'
 
 export interface IProps {
   navbars: INavbar[]
 }
-
 const props = withDefaults(defineProps<IProps>(), {
   navbars: () => []
 })
 
 const currentIndex = ref<number>(0)
 
-function handleItemClick(index: number) {
-  currentIndex.value = index
-}
-
 const getPagePath = computed(() => {
   return (item: INavbar) => {
     let path = '/'
     if (item.type !== 'oppo') {
-      path += item.type
+      path += item.type // type = onePlus
     }
     return path
   }
 })
+
+function handleItemClick(index: number) {
+  currentIndex.value = index
+}
 </script>
 
 <style lang="scss" scoped>
