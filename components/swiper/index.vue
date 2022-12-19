@@ -21,19 +21,18 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ElCarousel, ElCarouselItem } from "element-plus";
-import type { IBanner } from "@/store";
+import { ElCarousel, ElCarouselItem } from 'element-plus'
+import type { IBanner } from '@/store'
 export interface IProps {
-  banners: IBanner[];
+  banners: IBanner[]
 }
 const props = withDefaults(defineProps<IProps>(), {
-  banners: () => [],
-});
+  banners: () => []
+})
 
-const currentIndex = ref<number>(0);
+const currentIndex = ref<number>(0)
 function handleBannerChange(index: number) {
-  // console.log(index);
-  currentIndex.value = index;
+  currentIndex.value = index
 }
 </script>
 
