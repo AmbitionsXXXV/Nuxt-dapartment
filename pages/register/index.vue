@@ -8,7 +8,4 @@ definePageMeta({
 })
 </script>
 
-<style lang="scss">
-.register {
-}
-</style>
+<style lang="scss"></style>
